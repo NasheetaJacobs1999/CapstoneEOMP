@@ -11,9 +11,9 @@ const getUserId =   async(req,res)=> {
 }
 
 const insertUser = async (req,res) => {
-    let {firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile} = req.body
-    let hashedP = await hash(userPass, 10)
-    await insertUserDb(firstName,lastName,userAge,Gender,userRole,emailAdd,hashedP,userProfile)
+    let {username, email, password} = req.body
+    let hashedP = await hash(password, 10)
+    await insertUserDb(username, email, password)
     res.send('Data was inserted successfully')
 }
 
@@ -24,18 +24,13 @@ const deleteUser = async (req,res) => {
 }
 
 const updateUser =  async(req,res)=>{
-    let {firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile} = req.body
+    let {username, email, password} = req.body
     let user = await getUserDb(req.params.id)
-    firstName?firstName = firstName:firstName = user.firstName;
-    lastName?lastName = lastName:lastName = user.lastName;
-    userAge?userAge = userAge:userAge = user.userAge;
-    Gender?Gender = Gender:Gender = user.Gender;
-    userRole?userRole = userRole:userRole = user.userRole;
-    emailAdd?emailAdd = emailAdd:emailAdd = user.emailAdd;
-    userPass?userPass = userPass:userPass = user.userPass;
-    userProfile?userProfile = userProfile:userProfile = user.userProfile;
+    username?username = username:username = user.username;
+    email?email = email:email = user.email;
+    password?password = password:password = user.password;
 
-    await updateUserDb( firstName , lastName , userAge , Gender , userRole , emailAdd , userPass , userProfile , req.params.id);
+    await updateUserDb(username, email , password , req.params.id);
     res.send('Data has been updated successfully.')
 }
 
