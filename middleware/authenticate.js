@@ -4,12 +4,12 @@ import jwt from "jsonwebtoken";
 import { config } from "dotenv";
 config()
 const checkUser = async (req, res, next) => {
-    const {emailAdd, userPass} = req.body;
-    console.log(emailAdd);
-    let hashedPassword = (await getEmailDb(emailAdd)).userPass;
-    let result = await compare(userPass, hashedPassword);
+    const {email, password} = req.body;
+    console.log(email);
+    let hashedPassword = (await getEmailDb(email)).password;
+    let result = await compare(password, hashedPassword);
     if (result==true) {
-        let token = jwt.sign({emailAdd: emailAdd}, process.env.SECRET_KEY, {expiresIn: '1h'})
+        let token = jwt.sign({email: email}, process.env.SECRET_KEY, {expiresIn: '1h'})
         // console.log(token);
         req.body.token = token
         next()
@@ -27,8 +27,8 @@ const verifyTheToken = (req, res, next) => {
             res.json({message: 'token has expired'});
             return;
         }
-        req.body.user = decoded.emailAdd
-        console.log(req.body.emailAdd);
+        req.body.user = decoded.email
+        console.log(req.body.email);
     })
     console.log(token);
     next();
