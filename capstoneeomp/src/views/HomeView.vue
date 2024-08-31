@@ -1,18 +1,13 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container-fluid home">
+    <div class="col">
+        <h1 class="homeHeader">FOSSIL VAULT</h1>
+      <p class="slogan"></p>
+      <button class="btn" @click="$router.push('/products')">Shop Now<img src="https://nasheetajacobs1999.github.io/Node.js-Images/images/RightArrowHomeBtn.jpg" alt="Arrow Right" class="arrow-icon"></button>
+    </div>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<style>
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+</style>
