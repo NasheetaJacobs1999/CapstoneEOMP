@@ -1,20 +1,18 @@
 <template>
-    <footer class="site-footer">
+    <footer class="Footer-website">
        <div class="container">
          <div class="row">
            <div class="col-sm-12 col-md-6">
              <h6>The Industry</h6>
-             <p class="text-justify">At PlayHub, we specialize in offering top-tier PS5 gaming equipment, ensuring that every gamer can fully immerse themselves in the next-generation gaming experience. From the latest consoles to cutting-edge accessories, we provide everything you need to take your gaming setup to the next level. What sets PlayHub apart is our commitment to quality, customer satisfaction, and competitive pricing, making us one of the best destinations for all your PlayStation needs. Gear up with PlayHub and experience gaming like never before!</p>
+             <p class="text-justify">Fossil Vault is a premium destination for enthusiasts of timeless style and cutting-edge technology. With a curated collection of Fossil watches, smartwatches, and accessories, Fossil Vault combines classic design with modern functionality. Each piece is crafted to blend tradition and innovation, ensuring that every item not only looks sophisticated but also meets the demands of contemporary life. Whether you're searching for a statement piece or a practical everyday companion, Fossil Vault offers a selection that caters to all tastes and needs.</p>
            </div>
            <div class="col-xs-6 col-md-3">
              <h6>Categories</h6>
              <ul class="footer-links">
-               <li><a href="#">Headsets</a></li>
-               <li><a href="#">Controllers</a></li>
-               <li><a href="#">PS5</a></li>
-               <li><a href="#">Accessories</a></li>
-               <li><a href="#">Cleaning Equipment</a></li>
-               <li><a href="#">Gift Cards</a></li>
+               <li><a href="#">Womens Collection</a></li>
+               <li><a href="#">Mens Collection</a></li>
+               <li><a href="#">Kids Collection</a></li>
+               <li><a href="#">Couples Collection</a></li>
              </ul>
            </div>
            <div class="col-xs-6 col-md-3">
@@ -30,8 +28,7 @@
        <div class="container">
          <div class="row">
            <div class="col-md-8 col-sm-6 col-xs-12">
-             <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by
-          <a href="#">Play Hub</a>.
+             <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by Fossil Vault
              </p>
            </div>
            <div class="col-md-4 col-sm-6 col-xs-12">
@@ -54,7 +51,7 @@
  }
  </script>
  <style scoped>
- .site-footer {
+ .Footer-website {
    background-color: #26272b;
    padding: 20px 0;
    font-size: 14px;
@@ -62,12 +59,12 @@
    color: #737373;
  }
  
- .site-footer hr {
+ .Footer-website hr {
    border-top-color: #bbb;
    opacity: 0.5;
  }
  
- .site-footer h6 {
+ .Footer-website h6 {
    color: #fff;
    font-size: 14px;
    text-transform: uppercase;
@@ -75,11 +72,11 @@
    letter-spacing: 2px;
  }
  
- .site-footer a {
+ .Footer-website a {
    color: #737373;
  }
  
- .site-footer a:hover {
+ .Footer-website a:hover {
    color: #3366cc;
    text-decoration: none;
  }
@@ -137,16 +134,16 @@
  }
  
  @media (max-width: 991px) {
-   .site-footer [class^=col-] {
+   .Footer-website [class^=col-] {
      margin-bottom: 20px;
    }
  }
  
  @media (max-width: 767px) {
-   .site-footer {
+   .Footer-website {
      padding-bottom: 0;
    }
-   .site-footer .copyright-text, .site-footer .social-icons {
+   .Footer-website .copyright-text, .Footer-website .social-icons {
      text-align: center;
    }
  }
