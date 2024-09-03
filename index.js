@@ -2,7 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import { userRouter } from './route/userRouter.js'
 import { productsRouter } from './route/productsRouter.js'
-let port = process.env.PORT || 1999
+let port = process.env.PORT || 666
+
 const app = express()
 app.use(cors())
 app.use(express.json())
