@@ -1,7 +1,6 @@
 <template>
     <section>
       <div class="container text-center pt-5">
-        <h3 class="sectHeader">Contact Fossil Vault</h3>
         <div class="form-card1">
           <div class="form-card2">
             <form class="form"
@@ -62,7 +61,7 @@
       <div class="contDetails justify-content-around text-center">
         <a href="mailto:contact@fossilvault.com" class="mail-link">
           <i class="fa-solid fa-envelope"></i>
-          contact@fossilvault.com
+          nasheetahjacobs@fossilvault.com
         </a>
         <a href="tel:+27635856284" class="phone-link">
           <i class="fa-solid fa-phone"></i>
@@ -87,11 +86,12 @@
     padding-bottom: 0.4em;
     background-color: #282c34;
     border-radius: 20px;
+    margin-top: 5rem;
   }
   
   .form-heading {
     text-align: center;
-    margin: 2em;
+    margin: 2rem;
     color: #c9d6df;
     font-size: 1.2em;
     align-self: center;

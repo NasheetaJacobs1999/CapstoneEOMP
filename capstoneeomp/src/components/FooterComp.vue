@@ -52,11 +52,11 @@
  </script>
  <style scoped>
  .Footer-website {
-   background-color: #26272b;
+   background-color: #000000;
    padding: 20px 0;
    font-size: 14px;
    line-height: 20px;
-   color: #737373;
+   color: #FFFFFF;
  }
  
  .Footer-website hr {
@@ -77,7 +77,7 @@
  }
  
  .Footer-website a:hover {
-   color: #3366cc;
+   color: #8dbac0;
    text-decoration: none;
  }
  
@@ -91,11 +91,11 @@
  }
  
  .footer-links a {
-   color: #737373;
+   color: #FFFFFF;
  }
  
  .footer-links a:active, .footer-links a:focus, .footer-links a:hover {
-   color: #3366cc;
+   color: #8dbac0;
    text-decoration: none;
  }
  
