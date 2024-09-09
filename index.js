@@ -29,7 +29,7 @@ app.use(
     })
 )
 app.get('^/$|/GameVaults', (req, res) => {
-    res.status(200).sendFile(path.resolve('./static/html/index.html'))
+    res.status(200).sendFile(path.resolve('./html/index.html'))
 })
 app.get('*', (req, res) => {
     res.json({
