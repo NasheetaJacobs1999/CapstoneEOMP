@@ -331,9 +331,9 @@ html, body {
 }
 
 .btn:hover {
-  background-color: #66a394; /* change the background color on hover */
-  color: #fff; /* change the text color on hover */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a box shadow on hover */
+  background-color: #66a394;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .arrow-icon {

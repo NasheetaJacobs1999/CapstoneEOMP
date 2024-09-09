@@ -4,7 +4,7 @@
         <div class="container-fluid">
           <span class="navbar-brand mb-0">
             <img
-              src="https://nasheetajacobs1999.github.io/Node.js-Images/images/PH (1).png"
+              src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Screenshot 2024-09-06 110339.png"
               alt="logo"
               class="logo"
             />
@@ -88,8 +88,8 @@
   }
   
   .logo {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
   }
   
   .navbar {

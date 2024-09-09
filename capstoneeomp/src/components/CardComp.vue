@@ -35,7 +35,7 @@ background: #fefefe;
 border-radius: 20px;
 overflow: hidden;
 margin: 10px;
-padding: 20px; /* added padding */
+padding: 20px; 
 }
 
 .title {
@@ -43,7 +43,7 @@ position: relative;
 font-weight: 600;
 letter-spacing: 1px;
 color: #030303;
-margin-top: 20px; /* increased margin */
+margin-top: 20px;
 }
 
 .bg-title {
@@ -69,7 +69,7 @@ z-index: 10;
 width: 100%;
 height: 220px;
 transition: .5s;
-margin-bottom: 20px; /* added margin */
+margin-bottom: 20px;
 }
 
 .card:hover .photo {
@@ -99,7 +99,7 @@ height: 100px;
 text-align: center;
 transition: 1s;
 z-index: 5;
-padding: 20px; /* added padding */
+padding: 20px;
 }
 
 .card:hover .content {
@@ -114,7 +114,7 @@ padding: 8px 20px;
 transition: .5s;
 visibility: hidden;
 opacity: 0;
-margin-bottom: 20px; /* added margin */
+margin-bottom: 20px;
 }
 
 .card:hover .feature {

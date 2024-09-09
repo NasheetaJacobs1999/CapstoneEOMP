@@ -36,7 +36,7 @@
         </div>
   
         <!-- Products Display -->
-        <div class="row gap-2 justify-content-center my-2" v-if="filteredAndSortedProducts.length">
+        <div class="row gap-2 justify-content-center my-2" v-if="filteredAndSortedProducts && filteredAndSortedProducts.length">
             <Card v-for="product in filteredAndSortedProducts" :key="product.prodID">
                 <template #cardHeader>
                     <img :src="product.prodUrl" loading="lazy" class="img-fluid" style="height: 200px;" :alt="product.prodName">
