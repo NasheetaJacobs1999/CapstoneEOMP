@@ -12,64 +12,20 @@
       </button>
     </div>
 
-    <!-- Second Div: Carousel 1 -->
+    <!-- Mens Collection -->
     <div class="col py-5 carouselOne">
       <h2>Mens Collection</h2>
       <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" v-for="(product, index) in mensProducts" :key="index">
             <div class="row">
-              <div class="col-md-4">
-                <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch1.webp" class="d-block w-50" alt="Product 1">
+              <div class="col-md-4" v-for="(item, idx) in product.items" :key="idx">
+                <img :src="item.imageUrl" class="d-block w-50" :alt="item.name">
                 <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-              </div>
-              <div class="col-md-4">
-                <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch2.webp" class="d-block w-50" alt="Product 2">
-                <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-              </div>
-              <div class="col-md-4">
-                <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch3.webp" class="d-block w-50" alt="Product 3">
-                <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch4.webp" class="d-block w-50" alt="Product 4">
-                <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-              </div>
-              <div class="col-md-4">
-                <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch5.webp" class="d-block w-50" alt="Product 5">
-                <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-              </div>
-              <div class="col-md-4">
-                <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch6.jpg" class="d-block w-50" alt="Product 6">
-                <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
+                  <h5>{{ item.name }}</h5>
+                  <p>{{ item.description }}</p>
+                  <p>Price: ${{ item.price }}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -85,140 +41,86 @@
       </div>
     </div>
 
-        <!-- First Div: Header Section -->
-<div class="header-section">
-  <div class="header-image-container">
-    <img
-      src="https://nasheetajacobs1999.github.io/CapstoneImages/images/HomeImage2.webp"
-      alt="Header Image"
-      class="header-image"
-    />
-    <img
-      src="https://nasheetajacobs1999.github.io/CapstoneImages/images/CouplesWatches.webp"
-      alt="Overlay Image"
-      class="overlay-image"
-    />
-    <button class="btn position-absolute header-button" @click="$router.push('/products')">
-      His & Hers
-    </button>
-  </div>
-</div>
-
-    <!-- Third Div: Static Content Section -->
-    <!-- Fourth Div: Carousel 2 -->
-<div class="col py-5 carouselTwo">
-  <div class="carousel-wrapper position-relative">
-    <h2>Womens Collection</h2>
-    <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch7.webp" class="d-block w-50" alt="Fossil Product 1">
-              <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-            </div>
-            <div class="col-md-4">
-              <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch8.webp" class="d-block w-50" alt="Fossil Product 2">
-              <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-            </div>
-            <div class="col-md-4">
-              <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch9.webp" class="d-block w-50" alt="Fossil Product 3">
-              <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
+    <!-- Womens Collection -->
+    <div class="col py-5 carouselTwo">
+      <div class="carousel-wrapper position-relative">
+        <h2>Womens Collection</h2>
+        <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" v-for="(product, index) in womensProducts" :key="index">
+              <div class="row">
+                <div class="col-md-4" v-for="(item, idx) in product.items" :key="idx">
+                  <img :src="item.imageUrl" class="d-block w-50" :alt="item.name">
+                  <div class="product-info">
+                    <h5>{{ item.name }}</h5>
+                    <p>{{ item.description }}</p>
+                    <p>Price: ${{ item.price }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <a class="carousel-control-prev" href="#carouselExample2" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExample2" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
         </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch10.webp" class="d-block w-50" alt="Fossil Product 4">
-              <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
       </div>
-            </div>
-            <div class="col-md-4">
-              <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch11.webp" class="d-block w-50" alt="Fossil Product 5">
-              <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-            </div>
-            <div class="col-md-4">
-              <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Watch12.webp" class="d-block w-50" alt="Fossil Product 6">
-              <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-            </div>
+    </div>
+
+    <!-- Kids Collection -->
+    <div class="col py-5 text-center">
+      <h2>Kids Collection</h2>
+      <div class="row kids-collection">
+        <div class="col-md-4" v-for="(item, idx) in kidsProducts" :key="idx">
+          <img :src="item.imageUrl" class="img-fluid" :alt="item.name">
+          <div class="product-info">
+            <h5>{{ item.name }}</h5>
+            <p>{{ item.description }}</p>
+            <p>Price: ${{ item.price }}</p>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExample2" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExample2" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-
-    <!-- Fifth Div: Kids Collection Section -->
-<div class="col py-5 text-center">
-  <h2>Kids Collection</h2>
-  <div class="row kids-collection">
-    <div class="col-md-4">
-      <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Kids1.webp" class="img-fluid" alt="Kids Product 1">
-      <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
+      <div class="mt-4">
+        <button class="btn" @click="$router.push('/products')">
+          Shop Now 
+        </button>
       </div>
     </div>
-    <div class="col-md-4">
-      <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Kids2.webp" class="img-fluid" alt="Kids Product 2">
-      <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <img src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Kids3.webp" class="img-fluid" alt="Kids Product 3">
-      <div class="product-info">
-        <h5>Product 1 Name</h5>
-        <p>Product 1 Description</p>
-        <p>Price: $X.XX</p>
-      </div>
-    </div>
-  </div>
-  <div class="mt-4">
-    <button class="btn" @click="$router.push('/products')">
-        Shop Now 
-      </button>
-  </div>
-</div>
-
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+// Reactive variables for storing product data
+const mensProducts = ref([]);
+const womensProducts = ref([]);
+const kidsProducts = ref([]);
+
+// Fetch data from API
+async function fetchProducts() {
+  try {
+    const { data } = await axios.get('/api/products'); // Adjust the API endpoint as needed
+
+    // Assuming the API returns data structured by categories:
+    // e.g., { mens: [...], womens: [...], kids: [...] }
+    mensProducts.value = data.mens;
+    womensProducts.value = data.womens;
+    kidsProducts.value = data.kids;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+  }
+}
+
+// Fetch product data on component mount
+onMounted(fetchProducts);
+</script>
 
 <style scoped>
 html, body {
@@ -235,7 +137,7 @@ html, body {
 }
 
 .top-image-container {
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
   /* margin-bottom: 2em; */
   position: relative;
 }

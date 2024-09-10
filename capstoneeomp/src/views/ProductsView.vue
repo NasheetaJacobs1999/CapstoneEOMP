@@ -3,7 +3,7 @@
         <div class="row">
             <h2 class="display-2">Products</h2>
         </div>
-  
+
         <!-- Search and Filter -->
         <div class="row mb-4">
             <div class="col-md-6 mb-2 mb-md-0">
@@ -23,7 +23,7 @@
                 </select>
             </div>
         </div>
-  
+
         <!-- Sort Options -->
         <div class="row mb-4">
             <div class="col">
@@ -34,7 +34,7 @@
                 </select>
             </div>
         </div>
-  
+
         <!-- Products Display -->
         <div class="row gap-2 justify-content-center my-2" v-if="filteredAndSortedProducts && filteredAndSortedProducts.length">
             <Card v-for="product in filteredAndSortedProducts" :key="product.prodID">
@@ -43,7 +43,7 @@
                 </template>
                 <template #cardBody>
                     <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
+                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.price }}</p>
                     <div class="button-wrapper d-md-flex d-block justify-content-between">
                         <router-link :to="{ name: 'product', params: { id: product.prodID } }">
                             <button class="btn btn-success">View</button>
@@ -57,61 +57,64 @@
             <Spinner />
         </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { useStore } from 'vuex'
-  import { computed, onMounted, ref } from 'vue'
-  import Spinner from '@/components/SpinnerComp.vue'
-  import Card from '@/components/CardComp.vue'
-  
-  const store = useStore()
-  const products = computed(() => store.state.products)
-  const searchQuery = ref('')
-  const selectedCategory = ref('')
-  const sortOption = ref('default')
-  const categories = ref([])
-  
-  // Fetch products and categories
-  onMounted(() => {
-    store.dispatch('fetchProducts').then(() => {
+</template>
+
+<script setup>
+import { useStore } from 'vuex'
+import { computed, onMounted, ref } from 'vue'
+import Spinner from '@/components/SpinnerComp.vue'
+import Card from '@/components/CardComp.vue'
+
+const store = useStore()
+const products = computed(() => store.state.products || []) // Ensure products is always an array
+const searchQuery = ref('')
+const selectedCategory = ref('')
+const sortOption = ref('default')
+const categories = ref([])
+
+// Fetch products and categories
+onMounted(async () => {
+    try {
+        await store.dispatch('fetchProducts')
         const uniqueCategories = new Set(products.value.map(p => p.category))
         categories.value = Array.from(uniqueCategories)
-    })
-  })
-  
-  // Filtered and sorted products
-  const filteredAndSortedProducts = computed(() => {
-    let filteredProducts = products.value
-  
+    } catch (error) {
+        console.error("Error fetching products:", error)
+    }
+})
+
+// Filtered and sorted products
+const filteredAndSortedProducts = computed(() => {
+    let filteredProducts = products.value || []
+
     // Apply search filter
     if (searchQuery.value) {
         filteredProducts = filteredProducts.filter(product =>
             product.prodName.toLowerCase().includes(searchQuery.value.toLowerCase())
         )
     }
-  
+
     // Category filter
     if (selectedCategory.value) {
         filteredProducts = filteredProducts.filter(product =>
             product.category === selectedCategory.value
         )
     }
-  
+
     // Sorting
     if (sortOption.value === 'name') {
         filteredProducts = filteredProducts.sort((a, b) => a.prodName.localeCompare(b.prodName))
     } else if (sortOption.value === 'amount') {
-        filteredProducts = filteredProducts.sort((a, b) => a.amount - b.amount)
+        filteredProducts = filteredProducts.sort((a, b) => a.price - b.price)
     }
-  
-    return filteredProducts
-  })
-  
-  function addToCart(product) {
-    store.dispatch('addToCart', product)
-  }
-  </script>
-  <style scoped>
 
-  </style>
+    return filteredProducts
+})
+
+function addToCart(product) {
+    store.dispatch('addToCart', product)
+}
+</script>
+
+<style scoped>
+</style>

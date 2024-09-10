@@ -9,7 +9,7 @@
         </template>
         <template #cardBody>
             <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
+                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.price }}</p>
                     <div class="button-wrapper d-md-flex d-block justify-content-between">
                         <button class="btn btn-dark" @click="addToCart(product)">Add to Cart</button>
                     </div>    

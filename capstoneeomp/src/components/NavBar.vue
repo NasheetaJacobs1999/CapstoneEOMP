@@ -1,61 +1,43 @@
 <template>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg mx-auto fixed-top">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0">
             <img
               src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Screenshot 2024-09-06 110339.png"
               alt="logo"
               class="logo"
             />
           </span>
-          <button
-            class="navbar-toggler mx-auto"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <router-link to="/" class="nav-link text-white">Home</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link to="/about" class="nav-link text-white">About Us</router-link>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link text-white dropdown-toggle" @click.prevent="toggleDropdown('productsDropdown')">Products</a>
-                <ul v-if="dropdownOpen.productsDropdown" class="dropdown-menu">
-                  <li><a href="#" class="dropdown-item">Womens Collection</a></li>
-                  <li><a href="#" class="dropdown-item">Men Collection</a></li>
-                  <li><a href="#" class="dropdown-item">Kids Collections</a></li>
-                  <li><a href="#" class="dropdown-item">Couples Collection</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <router-link to="/contact" class="nav-link text-white">Contact Us</router-link>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link text-white dropdown-toggle" @click.prevent="toggleDropdown('adminDropdown')">Admin</a>
-                <ul v-if="dropdownOpen.adminDropdown" class="dropdown-menu">
-                  <li><a href="#" class="dropdown-item">Dashboard</a></li>
-                  <li><a href="#" class="dropdown-item">User Management</a></li>
-                  <li><a href="#" class="dropdown-item">Reports</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <router-link to="/checkout" class="nav-link text-white">Checkout</router-link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/checkout">Checkout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
   </template>
   
   <script>
@@ -136,3 +118,46 @@
   }
   </style>
   
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0">
+            <img
+              src="https://nasheetajacobs1999.github.io/CapstoneImages/images/Screenshot 2024-09-06 110339.png"
+              alt="logo"
+              class="logo"
+            />
+          </span>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/checkout">Checkout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

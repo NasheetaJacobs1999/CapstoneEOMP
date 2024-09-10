@@ -8,75 +8,41 @@ export default {
     name: "LoaderComp"
 }
 </script>
-<style>
-    .loader {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  background: transparent;
-  border-radius: 50%;
-  box-shadow: 25px 25px 75px rgba(0,0,0,0.55);
-  border: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
 
-.loader::before {
-  content: '';
-  position: absolute;
-  inset: 20px;
-  background: transparent;
-  border: 1px dashed#444;
-  border-radius: 50%;
-  box-shadow: inset -5px -5px 25px rgba(0,0,0,0.25),
-  inset 5px 5px 35px rgba(0,0,0,0.25);
-}
-
-.loader::after {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px dashed#444;
-  box-shadow: inset -5px -5px 25px rgba(0,0,0,0.25),
-  inset 5px 5px 35px rgba(0,0,0,0.25);
+<style scoped>
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
 }
 
 .loader span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  background: transparent;
-  transform-origin: top left;
-  animation: radar81 2s linear infinite;
-  border-top: 1px dashed #b77abc;
+    width: 100%;
+    height: 100%;
+    border: 8px solid transparent;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite, glow 1.5s ease-in-out infinite;
 }
 
-.loader span::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(139, 46, 125);
-  transform-origin: top left;
-  transform: rotate(-55deg);
-  filter: blur(30px) drop-shadow(20px 20px 20px rgb(174, 55, 182));
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-@keyframes radar81 {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db, 0 0 40px #3498db;
+    }
+    50% {
+        box-shadow: 0 0 20px #3498db, 0 0 30px #3498db, 0 0 40px #3498db, 0 0 50px #3498db;
+    }
 }
 </style>

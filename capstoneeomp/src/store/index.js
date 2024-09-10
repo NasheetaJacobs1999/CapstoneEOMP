@@ -3,7 +3,7 @@ import axios from 'axios'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
-import { applyToken } from '../../service/AuthenticatedUser.js'
+import { applyToken } from '../service/AuthenticatedUser.js'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
 
@@ -49,7 +49,7 @@ export default createStore({
         if (data) {
           context.commit('setUsers', data)
         } else {
-          toast.error(`${msg}`, {
+          toast.error(`Oooops something went wrong`, {
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
@@ -64,7 +64,7 @@ export default createStore({
     async fetchUser(context, id) {
       try {
         console.log(id)
-        const result = await ( await axios.get(`${apiURL}users/${id}`)).data
+        const {result, msg} = await ( await axios.get(`${apiURL}users/${id}`)).data
         if (result) {
           context.commit('setUser', result)
         } else {
@@ -216,7 +216,7 @@ export default createStore({
       
       try {
         console.log(id)
-        const  result  = await (await axios.get(`${apiURL}products/${id}`)).data
+        const  {result, msg}  = await (await axios.get(`${apiURL}products/${id}`)).data
         if (result) {
           context.commit('setProduct', result)
         } else {
