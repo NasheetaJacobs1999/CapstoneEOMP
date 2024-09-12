@@ -2,11 +2,13 @@ import { userRouter, express } from './controller/userController.js'
 import { productRouter } from './controller/ProductController.js'
 import cors from 'cors'
 import path from 'path'
+
 // Create an express app
 const app = express()
 const port = +process.env.PORT || 4000
 
 // Middleware
+app.use(express.static('static'))
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Credentials", "true");
