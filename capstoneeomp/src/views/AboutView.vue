@@ -48,13 +48,13 @@
 <style scoped>
 .about-us {
   background-color: #f9f9f9;
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
 }
 
 .about-us h1 {
   text-align: center;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .about-us .container {
@@ -102,6 +102,109 @@
 
 .text-center {
   text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-us {
+    padding: 1rem 0;
+  }
+  
+  .about-us h1 {
+    font-size: 24px;
+  }
+  
+  .about-us .container {
+    padding: 0 1rem;
+  }
+  
+  .about-us .row {
+    flex-direction: column;
+  }
+  
+  .col-md-6 {
+    width: 100%;
+  }
+  
+  .bordered-paragraph {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-member {
+    margin-bottom: 2rem;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .images-gallery {
+    flex-direction: column;
+  }
+  
+  .images-gallery img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .about-us h1 {
+    font-size: 20px;
+  }
+  
+  .team-member img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .about-us {
+    padding: 1rem 0;
+  }
+  
+  .about-us h1 {
+    font-size: 24px;
+  }
+  
+  .about-us .container {
+    padding: 0 1rem;
+  }
+  
+  .about-us .row {
+    flex-direction: column;
+  }
+  
+  .col-md-6 {
+    width: 100%;
+  }
+  
+  .bordered-paragraph {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-member {
+    margin-bottom: 2rem;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .images-gallery {
+    flex-direction: column;
+  }
+  
+  .images-gallery img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 1rem;
+  }
 }
 
 </style>

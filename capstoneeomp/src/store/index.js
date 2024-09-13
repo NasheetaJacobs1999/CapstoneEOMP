@@ -7,7 +7,7 @@ import { applyToken } from '../service/AuthenticatedUser.js'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
 
-const apiURL = 'https://capstoneeomp-7898.onrender.com'
+const apiURL = 'https://capstoneeomp-7898.onrender.com/'
 
 // Apply token from cookies if available
 applyToken(cookies.get('LegitUser')?.token)
@@ -17,7 +17,9 @@ export default createStore({
     user: null,
     products: null,
     recentProducts: null,
-    product: null
+    product: null,
+    maleProducts: [],
+    femaleProducts: [],
   },
   getters: {
   },
@@ -39,6 +41,13 @@ export default createStore({
     },
     setDeleteP(state, data){
       state.products = data
+    },
+
+    SET_MALE_PRODUCTS(state, products) {
+      state.maleProducts = products;
+    },
+    SET_FEMALE_PRODUCTS(state, products) {
+      state.femaleProducts = products;
     },
   },
   actions: {
@@ -175,28 +184,47 @@ export default createStore({
     // ==== Product =====
     async fetchProducts(context) {
       try {
-        const  {data}  = await axios.get(`${apiURL}products`)
-        console.log(data);
-        if (data) {
-          context.commit('setProducts', data)
+        const { data } = await axios.get(`${apiURL}products`)
+        console.log('Fetched products data:', data)
+    
+        if (data && data.results.length > 0) {
+          context.commit('setProducts', data.results) // Commit the results array from the API
         } else {
-          // Removed router.push to allow access to products without login
-          toast.error(`No products found`, {
+          console.error('No products found in the response')
+          toast.error('No products found', {
             autoClose: 2000,
-            position: toast.POSITION.BOTTOM_CENTER
+            position: toast.POSITION.BOTTOM_CENTER,
           })
         }
       } catch (e) {
-        toast.error(`${e.message}`, {
+        console.error('Error fetching products:', e)
+        toast.error(e.message, {
           autoClose: 2000,
-          position: toast.POSITION.BOTTOM_CENTER
+          position: toast.POSITION.BOTTOM_CENTER,
         })
+      }
+    },
+
+    async fetchMaleProducts({ commit }) {
+      try {
+        const response = await axios.get('/api/male-products');
+        commit('SET_MALE_PRODUCTS', response.data);
+      } catch (error) {
+        console.error('Error fetching male products:', error);
+      }
+    },
+    async fetchFemaleProducts({ commit }) {
+      try {
+        const response = await axios.get('/api/female-products');
+        commit('SET_FEMALE_PRODUCTS', response.data);
+      } catch (error) {
+        console.error('Error fetching female products:', error);
       }
     },
 
     async recentProducts(context) {
       try {
-        const { results, msg } = await (await axios.get(`${apiURL}product/recent`)).data
+        const { results, msg } = await (await axios.get(`${apiURL}products/recent`)).data
         if (results) {
           context.commit('setRecentProducts', results)
         } else {
@@ -234,7 +262,7 @@ export default createStore({
     },
     async addAProduct(context, payload) {
       try {
-        const { msg } = await (await axios.post(`${apiURL}product/add`, payload)).data
+        const { msg } = await (await axios.post(`${apiURL}products/add`, payload)).data
         if (msg) {
           context.dispatch('fetchProducts')
           toast.success(`${msg}`, {
@@ -281,6 +309,4 @@ export default createStore({
       }
     },
   },
-  modules: {
-  }
 })

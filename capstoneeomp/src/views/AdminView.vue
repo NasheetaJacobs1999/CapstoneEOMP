@@ -20,7 +20,7 @@
                 </thead>
                 <tbody v-if="products">
                     <tr v-for="product in products" :key="product.prodID" id="prod-row">
-                        <td><img :src="product.prodUrl" alt="product-img" id="tab-img"></td>
+                        <td><img :src="product.prodURL" alt="product-img" id="tab-img"></td>
                         <td>{{ product.prodID }}</td>
                         <td>{{ product.prodName }}</td>
                         <td>{{ product.quantity }}</td>
@@ -94,7 +94,7 @@
                         <input v-model="newProduct.quantity" type="text" placeholder="Quantity"><br>
                         <input v-model="newProduct.amount" type="text" placeholder="Amount"><br>
                         <input v-model="newProduct.category" type="text" placeholder="Category"><br>
-                        <input v-model="newProduct.prodUrl" type="text" placeholder="Img Url"><br>
+                        <input v-model="newProduct.prodURL" type="text" placeholder="Img Url"><br>
                         <input v-model="newProduct.prodBio" type="text" placeholder="Bio img url"><br>
                         <input v-model="newProduct.prodDes" type="text" placeholder="Description"><br>
                     </div>
@@ -119,7 +119,7 @@
                         <input v-model="productPayload.quantity" type="text" placeholder="Quantity"><br>
                         <input v-model="productPayload.amount" type="text" placeholder="Amount"><br>
                         <input v-model="productPayload.category" type="text" placeholder="Category"><br>
-                        <input v-model="productPayload.prodUrl" type="text" placeholder="Image Url"><br>
+                        <input v-model="productPayload.prodURL" type="text" placeholder="Image Url"><br>
                         <input v-model="productPayload.prodBio" type="text" placeholder="Bio"><br>
                         <input v-model="productPayload.prodDes" type="text" placeholder="Description"><br>
                     </div>
@@ -192,7 +192,7 @@ export default {
                 quantity: "",
                 amount: "",
                 category: "",
-                prodUrl: "",
+                prodURL: "",
                 prodBio: "",
                 prodDes: "",
             },
@@ -201,7 +201,7 @@ export default {
                 quantity: "",
                 amount: "",
                 category: "",
-                prodUrl: "",
+                prodURL: "",
                 prodBio: "",
                 prodDes: "",
             },
@@ -229,7 +229,7 @@ export default {
                 quantity: this.newProduct.quantity,
                 amount: this.newProduct.amount,
                 category: this.newProduct.category,
-                prodUrl: this.newProduct.prodUrl,
+                prodURL: this.newProduct.prodURL,
                 prodBio: this.newProduct.prodBio,
                 prodDes: this.newProduct.prodDes
             };
@@ -298,6 +298,96 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.container-fluid {
+  padding: 2rem;
+}
 
+.tab-div {
+  margin-bottom: 2rem;
+}
+
+h2, h3 {
+  margin-bottom: 1rem;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: bold;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+#tab-img {
+  width: 80px; 
+  height: auto; 
+  object-fit: cover; 
+  border-radius: 5px; 
+}
+
+.btns {
+  display: flex;
+  gap: 0.5rem; 
+}
+
+.btn-edit, .btn-del {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.25rem; 
+}
+
+.btn-edit:hover {
+  color: #007bff;
+}
+
+.btn-del:hover {
+  color: #dc3545;
+}
+
+.modal-dialog {
+  max-width: 500px;
+}
+
+.modal-body input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer .btn {
+  margin-left: 0.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .table td, .table th {
+    padding: 0.5rem;
+  }
+
+  #tab-img {
+    width: 60px;
+  }
+}
 </style>
